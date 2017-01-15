@@ -5,7 +5,7 @@ endif
 call add(g:ctrlp_ext_vars, {
   \ 'init': 'ctrlp#key#init()',
   \ 'accept': 'ctrlp#key#accept',
-  \ 'lname': 'key-manager',
+  \ 'lname': 'leader-guide',
   \ 'sname': '',
   \ 'type': 'line',
   \ 'sort': 0,
