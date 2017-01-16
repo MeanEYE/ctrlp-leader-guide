@@ -90,7 +90,7 @@ endfunction
 
 function! ctrlp#key#FMLFormatMappings(source, mappings)
   let mapping_width = ctrlp#key#FMLCalcMappingWidth(a:mappings)
-  let formatted = map(a:mappings, 'printf(" %-' . mapping_width . 's | %s | %s", v:val.lhs,get(v:val, "desc", ""),v:val.rhs)')
+  let formatted = map(a:mappings, 'printf(" %-' . mapping_width . 's | %s ", v:val.lhs,get(v:val, "desc", v:val.rhs))')
   return join(formatted, "\n")
 endfunction
 
@@ -109,14 +109,15 @@ function! ctrlp#key#init() abort
 endfunction
 
 function! ctrlp#key#accept(mode, str) abort
-  let l:key=matchstr(a:str,'\(|\s\+\)\@<=[^|]*$')
+  call ctrlp#exit()
+  let l:key=matchstr(a:str,'\w\+\(\s\+|\)\@=')
+  let l:key = maparg(s:fml_leader.l:key)
   if matchstr(l:key,'\c^:\|<cr>') !=# ''
-    execute substitute(l:key,'<cr>','','')
+    execute substitute(l:key,'\c<cr>','|','g')
   else
     let l:temp=eval('"'.escape(l:key,'<').'"')
     call feedkeys(l:temp)
   endif
-  call ctrlp#exit()
 endfunction
 
 let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)

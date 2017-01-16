@@ -3,12 +3,15 @@ ctrlp-leader-guide
 
 🍎 Vim leader guide with ctrlp insterface.
 
-Vim plugin for showing and executing all your `<Leader>` mappings in a readable table including the descriptions.
+Vim plugin for showing all your `<Leader>` mappings with ctrlp insterface.
 
 Installation
 ------------
 
-Use your faviorte method install this plugin.
+Use your faviorte method install this plugin, such as: 
+
+- [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
+- [Shougo/dein.nvim](https://github.com/Shougo/dein.vim)
 
 Features
 --------
@@ -18,13 +21,11 @@ Features
 * Mappings from all scripts sourced by Vim can be listed if specified by configuration (see Options)
 * If the line previous to the mapping is a comment it will be used as the description
 * If no comment is available the **rhs** of the mapping is used as description
-* Mappings are shown in a table, grouped by **source**, with the following columns
-  * Mode: which mode the mapping applies to
-  * LHS: left hand side of the mapping (without `<Leader>`)
-  * Description: The mapping comment if present. The **rhs** otherwise
 
 Screenshots
 -----------
+
+![screenshot](https://cloud.githubusercontent.com/assets/4246425/21986374/1fd26d88-dc3a-11e6-8de7-384c4cddc5c1.png)
 
 Shortcuts
 ---------
